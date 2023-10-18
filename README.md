@@ -17,15 +17,34 @@ Detecting unseen instances based on multi-view templates is a challenging proble
 
 ## Pre-trained models
 
+Pre-trained models is provided by the [origianl VoxDet repo][voxdet_ori_link] and can be accessed directly [here](https://drive.google.com/file/d/1VrXcT6tQwhR0zDlANribjcyAritFqKn7/view). 
+
+The folder structure of the downloaded zip file looks like the following.
+
+```
+outputs
+├── VoxDet_p1
+├── VoxDet_p2_1
+└── VoxDet_p2_2
+```
+
+where p1 and p2 are for different phases of the training process.
+
+NOTE: the folder also contains the original model outputs that are present in the published paper. The default behavior of the code is to retreive the results from the saved files if they are available. So it is important to configure the command line argument when running the following demos in the such a way that new results are generated instead of reading old results from the file system.
+
 ## Datasets
+
+VoxDet is trained on a newly created dataset that we created for this research project. It is tested on some existing public datasets and a new benchmark dataset we created just for evaluating VoxDet and baseline models. For more details about the datasets, please refer to the [original VoxDet repo][voxdet_ori_link].
+
+For running the following demos, we only use the LM-O dataset considering its smaller size. Since VoxDet assumes that input data is arranged in a specific format, the user needs to download a [specific version](https://drive.google.com/file/d/1cY8gWF6t0IhEa0nLPVWfHMcPlfTNFPwe/view) of the LM-O dataset to be able to run the demos.
 
 ## Demos
 
 Please refer the following list for running VoxDet on different platforms.
 
 - [Run locally following the original instructions.](docs/demo_local_original/README.md)
-- Run locally with docker.
-- Run on PSC with singularity. 
+- [Run locally with docker.](docs/demo_local_docker/README.md)
+- [Run on PSC with singularity. ](docs/demo_PSC/README.md)
 
 ## Reference
 If our work inspires your research, please cite us as:
@@ -40,3 +59,7 @@ If our work inspires your research, please cite us as:
 	number={}
 }
 ```
+
+## Point of contact
+
+For using and discussing this particulary fork, plcase contact [Yaoyu Hu](mailto:yaoyuh@andrew.cmu.edu).

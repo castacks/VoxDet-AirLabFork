@@ -1,11 +1,17 @@
-## Requirements
 
-This repo is tested under Python 3.7, PyTorch 1.7.0, Cuda 11.0, and mmcv==1.2.5.
+# Run VoxDet locally (almost the original instructions)
 
+# NOTE
 
+Most of the instructions here are copied from the [original VoxDet repo][voxdet_ori_link], WITHOUT testing simply because VoxDet's original way of code deployment may cause some compatibility issues. Users are encouraged to follow the instructions for using [Docker](../demo_local_docker/README.md) and [Singularity](../demo_PSC/README.md) where environments are isolated in containers and no compatibility issues should occur.
 
+[voxdet_ori_link]: https://github.com/Jaraxxus-Me/VoxDet
 
-## Installation
+# Requirements
+
+The original repo is tested under Python 3.7, PyTorch 1.7.0, Cuda 11.0, and mmcv==1.2.5.
+
+# Installation
 
 This repo is built based on [mmdetection](https://github.com/open-mmlab/mmdetection). 
 
@@ -25,13 +31,13 @@ cd bop_toolkit
 pip install -e .
 ```
 
+# Prepare datasets
 
+We only use the [LM-O][lmo_dl] dataset to reproduce the evaluation number in this demo. The user need to use the [LM-O][lmo_dl] provided by us since VoxDet requires a specific format of the input data.
 
-## Prepare datasets
+[lmo_dl]: https://drive.google.com/file/d/1cY8gWF6t0IhEa0nLPVWfHMcPlfTNFPwe/view?usp=sharing
 
-We provide the processed [OWID](https://drive.google.com/file/d/1sRHaVd4exOmGqFUVT6JKUzEOrDeHmlbT/view?usp=sharing), [LM-O](https://drive.google.com/file/d/1cY8gWF6t0IhEa0nLPVWfHMcPlfTNFPwe/view?usp=sharing), [YCB-V](https://drive.google.com/file/d/1JpixHE9DN-W-BVFkVC12qss0CUu9VA8y/view?usp=sharing) and [RoboTools](https://drive.google.com/file/d/1kXR-Z-sJlTnWy3HRGWAcV6_IIJgRHbD6/view?usp=sharing) to reproduce the evaluation.
-
-You can download them and creat data structure like this:
+You can download [LM-O][lmo_dl] and creat data structure like this, note that there is a `BOP` folder under `data`:
 
 ```shell
 VoxDet
@@ -43,21 +49,15 @@ VoxDet
 │   │   ├── lmo
 |   |   |   ├── test
 |   |   |   ├── test_video
-│   │   ├── ycbv
-│   │   ├── RoboTools
-│   ├── OWID
-│   │   ├── P1
-│   │   ├── P2
 ```
 
 You can also compile your custom instance detection dataset using [this toolkit](https://github.com/Jaraxxus-Me/OWID-toolkit.git), it is very useful :)
 
-
-## Testing
+# Testing
 
 Our trained [models and raw results](https://drive.google.com/file/d/1VrXcT6tQwhR0zDlANribjcyAritFqKn7/view?usp=sharing) for all the stages are available for download. 
 
-Place it under `outputs/` and run the following commands to test VoxDet on LM-O and YCB-V datasets.
+Place it under `outputs/` and run the following commands to test VoxDet on LM-O dataset.
 
 ```shell
 bash tools/test.sh
@@ -73,9 +73,7 @@ python3 tools/test.py --config configs/voxdet/${CONFIG}.py --out outputs/$OUT_DI
 
 The results will be shown in the `.txt` file.
 
-
-
-## Training
+# Training
 
 Our training set OWID will be released upon acceptance, while we provide the code and script here:
 
@@ -90,3 +88,4 @@ bash tools/train_dist.sh
 bash tools/train_dist_2.sh
 
 ```
+

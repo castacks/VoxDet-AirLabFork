@@ -23,7 +23,7 @@ Detecting unseen instances based on multi-view templates is a challenging proble
 
 Please refer the following list for running VoxDet on different platforms.
 
-- Run locally following the original instructions.
+- [Run locally following the original instructions.](docs/demo_local_original/README.md)
 - Run locally with docker.
 - Run on PSC with singularity. 
 

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#echo commands to stdout
+set -x
+
+echo ""
+echo "========================================"
+echo "========== Before Singularity =========="
+echo "========================================"
+echo ""
+
+# create sigularity container
+SIF="/path/to/the/singularity/file.sif"
+SOURCE_CODE_PATH="/path/to/the/source/code"
+DATASET_PATH="/path/to/the/dataset/BOP"
+
+WD_ROOT="/path/to/the/root/of/the/working/directory"
+WD_CASE="00_TestInference"
+
+# Create a temporary home folder under the working directory.
+mkdir -p ${WD_ROOT}/${WD_CASE}/temp_home
+
+# The string of command.
+S_EXEC="\
+	singularity exec \
+	-B ${SOURCE_CODE_PATH}/:/scripts/ \
+	-B ${DATASET_PATH}/:/data/ \
+	-B ${WD_ROOT}/${WD_CASE}/:/WD/ \
+	-H ${WD_ROOT}/${WD_CASE}/temp_home \
+	--nv \
+	${SIF}"
+
+# implement the job in the container
+SCRIPT=inference.sh
+${S_EXEC} 'bash' ${SCRIPT}
+
+echo ""
+echo "======================================="
+echo "========== After Singularity =========="
+echo "======================================="
+echo ""

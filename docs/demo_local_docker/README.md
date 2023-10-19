@@ -12,7 +12,7 @@ Clone VoxDet from this fork as usual. Later in this instruction, we will refer t
 
 # Prepare the data
 
-We only use the [LM-O][lmo_dl] dataset to reproduce the evaluation number in this demo. The user needs to use the [LM-O][lmo_dl] provided by us since VoxDet requires a specific format for the input data.
+We only use the [LM-O][lmo_dl] dataset to reproduce the evaluation metrics in this demo. The user needs to use the [LM-O][lmo_dl] provided by us since VoxDet requires a specific format for the input data.
 
 [lmo_dl]: https://drive.google.com/file/d/1cY8gWF6t0IhEa0nLPVWfHMcPlfTNFPwe/view?usp=sharing
 
@@ -39,7 +39,7 @@ outputs
 └── VoxDet_p2_2
 ```
 
-# Prepare the Docker images
+# Prepare the Docker image
 
 ## A touch of Docker
 

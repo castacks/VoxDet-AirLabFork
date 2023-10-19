@@ -49,7 +49,7 @@ For users who do not like this idea, please skip the [Augment the raw Docker ima
 
 ## Get the Docker image from DockerHub
 
-Images can be found at [the AirLab's DockerHub page](https://hub.docker.com/repository/docker/theairlab/voxdet/general).
+Images can be found on [the AirLab's DockerHub page](https://hub.docker.com/repository/docker/theairlab/voxdet/general).
 
 ## Augment the raw Docker image
 

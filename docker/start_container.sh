@@ -35,7 +35,8 @@ docker run \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --volume="$XAUTH:$XAUTH" \
     --volume="/path/to/voxdet_src/:/scripts/" \
-    --volume="/path/to/data/:/data/" \
+    --volume="/path/to/data/BOP/:/data/" \
+    --volume="/path/to/working/directory/:/WD/" \
     --env="DISPLAY=$DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
     --env="XAUTHORITY=$XAUTH" \
